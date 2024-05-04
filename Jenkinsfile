@@ -12,7 +12,7 @@ pipeline {
                 branch "dev-*"
             }
             steps {
-                echo "Branch: \${env.BRANCH_NAME}"
+                echo "Branch: ${env.BRANCH_NAME}"
             }
         }
     }
