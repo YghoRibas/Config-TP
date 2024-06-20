@@ -1,0 +1,12 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Bower dependency directory (https://bower.io/)
+bower_components
+
+# Npm dependency
+node_modules
+
+dist
