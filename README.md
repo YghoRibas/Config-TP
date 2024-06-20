@@ -3,11 +3,6 @@
 ## Introdução
 Este projeto consiste no desenvolvimento de uma API para gerenciar produtos de uma loja e uma aplicação mobile que interage com essa API. A API foi criada para otimizar os processos internos, simplificar a gestão de dados e aprimorar a qualidade do ambiente de vendas. A aplicação mobile, desenvolvida em Swift UIKit, demonstra algumas funcionalidades da API e oferece uma interface amigável para os usuários.
 
-## Requisitos do Sistema
-- Adicionar produto de diferentes categorias;
-- Remover produto;
-
-
 ## Arquitetura
 A arquitetura do sistema é baseada em uma API RESTful, desenvolvida em Java utilizando Spring Boot. A API expõe endpoints para as operações CRUD de gerenciamento de pacientes, bem como para cálculos específicos relacionados aos dados dos produtos. A aplicação mobile utiliza Swift UIKit para fornecer uma interface interativa que permite aos usuários visualizar e gerenciar informações dos pacientes.
 
@@ -80,6 +75,10 @@ docker build -t api-gerenciamento-pacientes.
 
 docker run -p 8080:8080 api-gerenciamento-pacientes
 
+
+## Requisitos do Sistema
+- Adicionar produto de diferentes categorias;
+- Remover produto;
 
 ## Aplicação Mobile
 
