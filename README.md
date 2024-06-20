@@ -114,6 +114,158 @@ git push origin minha-feature
 
 5. Crie um Pull Request.
 
+ # Documentação da API
+
+## Endpoints
+
+### Usuários
+
+#### Registro de Usuário
+- **Rota:** /user/register
+- **Método:** POST
+- **Descrição:** Registra um novo usuário.
+- **Parâmetros do Corpo:**
+    - `name` (String): Nome do usuário
+    - `password` (String): Senha do usuário
+    - `admin` (Boolean): Indicador se o usuário é administrador
+    - `mail` (String): E-mail do usuário
+- **Respostas:**
+    - `201`: Usuário criado com sucesso
+    - `400`: Usuário já existe
+    - `422`: E-mail é obrigatório
+    - `500`: Erro interno do servidor
+    
+#### Login de Usuário
+- **Rota:** /user/login
+- **Método:** POST
+- **Descrição:** Realiza o login de um usuário.
+- **Parâmetros do Corpo:**
+    - `mail` (String): E-mail do usuário
+    - `password` (String): Senha do usuário
+- **Respostas:**
+    - `201`: Login bem-sucedido
+    - `404`: Usuário ou senha inválidos
+    - `500`: Erro interno do servidor
+
+#### Obter Todos os Usuários
+- **Rota:** /user/getAllUsers
+- **Método:** GET
+- **Descrição:** Retorna todos os usuários.
+- **Respostas:**
+    - `200`: Lista de usuários
+    - `500`: Erro interno do servidor
+
+#### Obter Usuário por ID
+- **Rota:** /user/:id
+- **Método:** GET
+- **Descrição:** Retorna um usuário pelo ID.
+- **Parâmetros da URL:**
+    - `id` (String): ID do usuário
+- **Respostas:**
+    - `200`: Usuário encontrado
+    - `422`: Usuário não encontrado
+    - `500`: Erro interno do servidor
+
+#### Atualizar Usuário
+- **Rota:** /user/updateUser
+- **Método:** POST
+- **Descrição:** Atualiza um usuário.
+- **Parâmetros do Corpo:**
+    - `mail` (String): E-mail do usuário
+    - `admin` (Boolean): Indicador se o usuário é administrador
+    - `name` (String): Nome do usuário
+    - `password` (String): Senha do usuário
+- **Respostas:**
+    - `200`: Usuário atualizado
+    - `404`: Usuário não encontrado
+    - `422`: Usuário não encontrado
+    - `500`: Erro interno do servidor
+
+#### Deletar Usuário
+- **Rota:** /user/deleteUser
+- **Método:** DELETE
+- **Descrição:** Deleta um usuário.
+- **Parâmetros da URL:**
+    - `id` (String): ID do usuário
+- **Respostas:**
+    - `200`: Usuário removido
+    - `422`: Usuário não encontrado
+    - `500`: Erro interno do servidor
+
+### Produtos
+
+#### Criar Produto
+- **Rota:** /product/create
+- **Método:** POST
+- **Descrição:** Cria um novo produto.
+- **Parâmetros do Corpo:**
+    - `clientId` (String): ID do cliente
+    - `price` (Number): Preço do produto
+    - `description` (String): Descrição do produto
+    - `image` (String): URL da imagem do produto
+- **Respostas:**
+    - `201`: Produto criado com sucesso
+    - `422`: Usuário é obrigatório
+    - `500`: Erro interno do servidor
+
+#### Obter Produtos por Cliente
+- **Rota:** /product/getProductByClient
+- **Método:** GET
+- **Descrição:** Retorna produtos por cliente.
+- **Parâmetros da Query:**
+    - `clientId` (String): ID do cliente
+- **Respostas:**
+    - `200`: Lista de produtos
+    - `422`: Cliente sem produtos cadastrados
+    - `500`: Erro interno do servidor
+
+#### Obter Todos os Produtos
+- **Rota:** /product/getAllproducts
+- **Método:** GET
+- **Descrição:** Retorna todos os produtos.
+- **Respostas:**
+    - `200`: Lista de produtos
+    - `422`: Nenhum produto cadastrado
+    - `500`: Erro interno do servidor
+
+#### Obter Produto Específico
+- **Rota:** /product/getOneDemands
+- **Método:** GET
+- **Descrição:** Retorna um produto específico.
+- **Parâmetros da Query:**
+    - `clientId` (String): ID do cliente
+    - `id` (String): ID do produto
+- **Respostas:**
+    - `200`: Produto encontrado
+    - `422`: Produto inexistente
+    - `500`: Erro interno do servidor
+
+#### Deletar Produto
+- **Rota:** /product/delete
+- **Método:** DELETE
+- **Descrição:** Deleta um produto.
+- **Parâmetros da Query:**
+    - `clientId` (String): ID do cliente
+    - `id` (String): ID do produto
+- **Respostas:**
+    - `200`: Produto removido
+    - `422`: Produto inexistente
+    - `500`: Erro interno do servidor
+
+#### Atualizar Produto
+- **Rota:** /product/:id
+- **Método:** PATCH
+- **Descrição:** Atualiza um produto.
+- **Parâmetros do Corpo:**
+    - `id` (String): ID do produto
+    - `clientId` (String): ID do cliente
+    - `price` (Number): Preço do produto
+- **Respostas:**
+    - `200`: Produto atualizado
+    - `422`: Produto não encontrado
+    - `500`: Erro interno do servidor
+
+
 ## Licença
 Este projeto não possui um licenciamento específico. Para mais informações sobre os termos de uso e distribuição do software, por favor, entre em contato com o autor.
 
